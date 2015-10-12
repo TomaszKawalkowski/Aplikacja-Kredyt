@@ -1,0 +1,40 @@
+
+
+
+
+.tlowstepu {
+
+    background-color: dimgrey;
+    padding: 10px;
+    color:white;
+}
+
+.wstep {
+    color: black;
+    text-align: justify;
+    background-color: beige;
+}
+
+.panel-body {
+    background-color: beige;
+    color: black;
+}
+
+.formularz {
+
+    margin-left: 20px;
+}
+
+.anime {
+    display: none;
+}
+
+.logged{
+background: url('../pics/giftly.png')
+}
+body{
+background-color: beige;
+}
+
+
+
