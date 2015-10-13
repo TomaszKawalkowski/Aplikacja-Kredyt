@@ -3,12 +3,22 @@ include_once('kredyt.php');
 include_once('src/home.php');
 
 session_start();
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['kalklog']!=1) {
 
     $newUser = User::logIn($_POST['name'], $_POST['password']);
     if ($newUser != false) {
         $_SESSION['user'] = $newUser;
         header('location: index.php');
+    }
+    $r = 1;
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['kalklog']==1) {
+
+    $newUser = User::logIn($_POST['name'], $_POST['password']);
+    if ($newUser != false) {
+        $_SESSION['user'] = $newUser;
+        header('location: kalk.php');
     }
     $r = 1;
 }
@@ -52,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                     <li><a href="index.php">Spłacić wcześniej kredyt hipoteczny</a></li>
-                    <li><a href="nieruchomosc.php">Kupić nieruchomość z przeznaczeniem na wynajem</a></li>
+                    <!--   <li><a href="nieruchomosc.php">Kupić nieruchomość z przeznaczeniem na wynajem</a></li>-->
                     <li><a href="kalk.php">Kalkulator Kredytowy</a></li>
                     <li><a href="formularz_kontaktowy.php">Napisz do nas</a></li>
                     <li><a href="register.php">Zarejestruj się</a></li>
@@ -114,7 +124,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
                         <div class="odstep" style="height: 20px;"></div>
-                        <input type="submit" class="btn btn-info" style="width:100%" value="ZALOGUJ SIĘ"">
+
+                        <button type="submit" class="btn btn-info" style="width:100%"> ZALOGUJ SIĘ <i class="fa fa-sign-in"></i> </button>
                     </div>
 
                 </div>

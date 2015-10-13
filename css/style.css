@@ -24,7 +24,7 @@
 
     margin-left: 20px;
 }
-
+.logform,
 .anime {
     display: none;
 }
@@ -36,5 +36,10 @@ body{
 background-color: beige;
 }
 
+.beige,
+.form-control{
+    background-color: beige;
+
+}
 
 

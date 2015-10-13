@@ -72,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                     <li><a href="index.php">Spłacić wcześniej kredyt hipoteczny</a></li>
-                    <li><a href="nieruchomosc.php">Kupić nieruchomość z przeznaczeniem na wynajem</a></li>
+                    <!--   <li><a href="nieruchomosc.php">Kupić nieruchomość z przeznaczeniem na wynajem</a></li>-->
                     <li><a href="kalk.php">Kalkulator Kredytowy</a></li>
                     <li><a href="formularz_kontaktowy.php">Napisz do nas</a></li>
                     <li><a href="register.php">Zarejestruj się</a></li>
@@ -152,8 +152,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             >
 
                         <div class="odstep" style="height: 20px;"></div>
-                        <input type="submit" class="btn btn-info" style="width:100%;" value="ZAREJESTRUJ SIĘ"
-                               >
+                        <button type="submit" class="btn btn-info" style="width:100%"> ZAREJESTRUJ SIĘ <i class="fa fa-sign-in"></i> </button>
+
                     </div>
 
                 </div>

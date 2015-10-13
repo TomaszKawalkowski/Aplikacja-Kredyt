@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                     <li><a href="index.php">Spłacić wcześniej kredyt hipoteczny</a></li>
-                    <li><a href="nieruchomosc.php">Kupić nieruchomość z przeznaczeniem na wynajem</a></li>
+                    <!--   <li><a href="nieruchomosc.php">Kupić nieruchomość z przeznaczeniem na wynajem</a></li>-->
                     <li><a href="kalk.php">Kalkulator Kredytowy</a></li>
                     <li><a href="formularz_kontaktowy.php">Napisz do nas</a></li>
                     <li><a href="register.php">Zarejestruj się</a></li>

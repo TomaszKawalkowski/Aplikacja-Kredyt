@@ -141,7 +141,7 @@ ob_start();
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                     <li><a href="index.php">Spłacić wcześniej kredyt hipoteczny</a></li>
-                    <li><a href="nieruchomosc.php">Kupić nieruchomość z przeznaczeniem na wynajem</a></li>
+                    <!--   <li><a href="nieruchomosc.php">Kupić nieruchomość z przeznaczeniem na wynajem</a></li>-->
                     <li><a href="kalk.php">Kalkulator Kredytowy</a></li>
                     <li><a href="formularz_kontaktowy.php">Napisz do nas</a></li>
                     <li><a href="register.php">Zarejestruj się</a></li>
@@ -155,183 +155,262 @@ ob_start();
 </nav>
 
 <div class="container">
-    <div class="odstep" style="height: 30px;"></div>
-    <div class="row">
 
+    <div class="row">
         <div class="col-md-12">
-            <div class="jumbotron" style="color: white; background-color: dimgray;">
+            <div style="background-color:dimgray; height: 270px;">
+                <div class=" jumbotron"
+                     style="float:left; color: white; background-color: dimgray; margin: 0 0; width:75%; height:270px;">
 
 
-                <h1> Czy <span style="color:orangered">opłaca </span> się</h1><br>
+                    <h1> Czy <span style="color:orangered">opłaca </span> się</h1><br>
 
-                <h1>
+                    <h1>
 
-                    <small style="color: white;">spłacić wcześniej kredyt hipoteczny</small>
-                    ???
-                </h1>
-                <?Php if ($loggedUser) {
-                    echo '
-    <div class="row">
-        <div class="col-md-10"></div>
-        <div class="col-md-2">
+                        <small style="color: white;">spłacić wcześniej kredyt hipoteczny</small>
+                        ???
+                    </h1>
+                </div>
 
-        <div class="tlowstepu"">
-           <strong>';
-                    echo $loggedUser->getName();
-                    echo '</strong> <BR>
- <form action="index.php" role="form" method="POST">
-                <input type="hidden" name="logout" value="YES">
-             <button type="submit" class="btn btn-warning .btn-block" style="background-color: orangered;width:150px;">  <i class="fa fa-sign-out"></i> logout</button>
-            </form>
-        </div>
+                <div style="background-color: dimgray">
+                    <?Php
+                    if ($loggedUser) {
+                        echo '
+
+                                    <div class="formularzlogowania jumbotron" style="float:right; width: 17%; height: 270px;">
+                                     <div class="form-group" style="margin-top: 5px;">
+                                        <div class="tlowstepu"">
+                                           <strong>';
+                        echo '
+                                            <form action="index.php" role="form" method="POST">
+                                                <input type="hidden" name="logout" value="YES">
+                                                <button type="submit" class="btn btn-warning .btn-block"  style="width:100%; background-color: orangered;  border-radius: 7px; margin-top:8px;">  <i class="fa fa-sign-out"></i> logout</button>
+                                            </form>';
+                                           echo $loggedUser->getName();
+                        echo '</strong>
+                                        </div>
+                                        </div>
+                                        </div>
+
+                                    </div>';
+                    }
+                    if ($x!=1) {
+                        echo '
+
+                    <div class="formularzlogowania jumbotron" style="float:right; width: 17%; height: 270px;">
+                        <form action="login.php" method="post" class="anime">
+
+
+                            <div class="tlowstepu">
+
+
+
+                                <div class="form-group logform" style="margin-top: 15px; ">
+
+                                    <input class="form-control " type="text" name="name" placeholder="Nick"
+                                           style="background-color: beige" id="Nick">
+
+                                    <div class="odstep " style="height: 5px;"></div>
+
+                                    <input class="form-control " type="password" name="password"
+                                           placeholder="Podaj hasło" style="background-color: beige">
+
+
+                                </div>
+                                <div class="form-group" style="margin-top: 3px;">
+
+                                    <button type="submit" class="btn btn-info"
+                                            style="width:100%; background-color: orangered;  border-radius: 7px; margin-top:8px;"
+                                            id="submitlog">
+                                        ZALOGUJ SIĘ <i
+                                            class="fa fa-sign-in"></i></button>
+
+                                </div>
+
+                            </div>
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>';
-                } ?>
-            </div>
+                    }
+                    ?>
 
-        </div>
-    </div>
+                    <div class="row">
 
-    <div class="well  anime" style="background-color: dimgray; color: white; text-align: center;"><h3><strong>PODAJ
-                DANE DO OBLICZENIA <span style="color:orangered;">OSZCZĘDNOŚCI</span> PRZY WCZEŚNIEJSZEJ SPŁACIE
-                KREDYTU
-            </strong></h3>
+                        <div class="col-md-12">
 
-
-    </div>
-
-    <div class="row anime">
-        <div class="col-md-4" style="margin-top: 30px;">
-            <form action="#section6" class="form-horizontal formularz" role="form" method="POST">
-                <div class="form-group">
-                    <label for="kwota">Podaj kwotę kredytu</label>
-                    <input class="form-control" type="number" name="kwota" placeholder="Podaj wartość ..." min="0"
-                           max="500 000 000"
-                           value="<?Php echo $k ? $k : '' ?>">
-                </div>
+                            <div class="well  anime"
+                                 style="background-color: dimgray; color: white; text-align: center;"><h3><strong>PODAJ
+                                        DANE DO OBLICZENIA <span style="color:orangered;">OSZCZĘDNOŚCI</span> PRZY
+                                        WCZEŚNIEJSZEJ SPŁACIE
+                                        KREDYTU
+                                    </strong></h3>
 
 
-                <div class="form-group">
-                    <label for="oprocentowanie">Podaj oprocentowanie w skali roku</label>
-                    <input class="form-control" type="number" name="oprocentowanie" placeholder="Wartość w % ..."
-                           min="0" max="100" value="<?Php echo $p ? $p : '' ?>">
-                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row anime">
+                        <div class="col-md-4" style="margin-top: 30px;">
+                            <form action="#section6" class="form-horizontal formularz" role="form" method="POST">
+                                <div class="form-group">
+                                    <label for="kwota">Podaj kwotę kredytu</label>
+                                    <input class="form-control" type="number" name="kwota"
+                                           placeholder="Podaj wartość ..." min="0"
+                                           max="500 000 000"
+                                           value="<?Php echo $k ? $k : '' ?>">
+                                </div>
 
 
-                <div class="form-group">
-                    <label for="year">Okres spłaty</label>
-                    Ilość lat <input type="number" name="year" size="4" style="width:60px" min="0" max="100"
-                                     value="<?Php echo $year ? $year : '' ?>">
-
-                    Ilość miesięcy <input type="number" name="month" size="3" style="width:60px" min="0" max="1200"
-                                          value="<?Php echo $month ? $month : '' ?>">
-                </div>
-
-                <div class="form-group">
-                    <label for="raty">Sposób spłaty </label><br>
-                    <label class="radio-inline"><input type="radio" name="raty" value="rowne">Raty równe</label>
-                    <label class="radio-inline"><input type="radio" name="raty" value="malejace">Raty
-                        malejące</label>
-                </div>
-
-                <div class="form-group">
-                    <label for="year">Kwota wcześniejszej spłaty</label>
-                    <input class="form-control" type="number" name='szybkasplata' placeholder="Podaj wartość ..."
-                           min="0" max="500 000 000"
-                           value="<?Php echo $w ? $w : '' ?>">
-                </div>
-
-                <div class="form-group">
-                    <label for="year">Mniejsza rata czy skrócony okres spłaty </label><br>
-                    <label class="radio-inline"><input type="radio" name="czas" value="bezzmian">mniejsza
-                        rata</label>
-                    <label class="radio-inline"><input type="radio" name="czas" value="krotszy">krótszy okres
-                        spłaty</label>
-                </div>
+                                <div class="form-group">
+                                    <label for="oprocentowanie">Podaj oprocentowanie w skali roku</label>
+                                    <input class="form-control" type="number" name="oprocentowanie"
+                                           placeholder="Wartość w % ..."
+                                           min="0" max="100" value="<?Php echo $p ? $p : '' ?>">
+                                </div>
 
 
-                <button type="submit" class="btn btn-primary btn-block " id="oblicz" style="background-color: dimgray;">
-                    O B L I C Z &nbsp &nbsp <i class="fa fa-check-square"></i>
-                </button>
-                <div class="odstep" style="height: 5px;"></div>
-                <div class="odstep" style="height: 5px; background-color: orangered;"></div>
-            </form>
-        </div>
+                                <div class="form-group">
+                                    <label for="year">Okres spłaty</label>
+                                    Ilość lat <input class="beige" type="number" name="year" size="4" style="width:60px"
+                                                     min="0"
+                                                     max="100"
+                                                     value="<?Php echo $year ? $year : '' ?>">
 
-        <div class="odstep" style="height: 10px;"></div>
+                                    Ilość miesięcy <input class="beige" type="number" name="month" size="3"
+                                                          style="width:60px" min="0"
+                                                          max="1200"
+                                                          value="<?Php echo $month ? $month : '' ?>">
+                                </div>
 
+                                <div class="form-group">
+                                    <label for="raty">Sposób spłaty </label><br>
+                                    <label class="radio-inline"><input class="beige" type="radio" name="raty"
+                                                                       value="rowne">Raty
+                                        równe</label>
+                                    <label class="radio-inline"><input class="beige" type="radio" name="raty"
+                                                                       value="malejace">Raty
+                                        malejące</label>
+                                </div>
 
-        <div class="col-md-8">
-            <div class="tlowstepu anime">
-                <p class="well well-lg wstep anime" >
+                                <div class="form-group">
+                                    <label for="year">Kwota wcześniejszej spłaty</label>
+                                    <input class="form-control" type="number" name='szybkasplata'
+                                           placeholder="Podaj wartość ..."
+                                           min="0" max="500 000 000"
+                                           value="<?Php echo $w ? $w : '' ?>">
+                                </div>
 
-
-                    Już ponad 10 % Polaków ma kredyt hipoteczny. Część z nas niezależnie od spłacanego kredytu,
-                    gromadzi równolegle oszczędności. Wówczas powstaje pytanie czy racjonalnym jest spłacenie
-                    kredytu przynajmniej w części, wcześniej. Abstrahując od konieczności posiadania środków na
-                    czarną
-                    godzinę (tzw. poduszki finansowej), z ekonomicznego
-                    punkty widzenia , kredytu <a style="color:orangered; "><strong>nie
-                            warto</strong></a> spłacać w dwóch przypadkach:<br><br>
-                    <a style="color:orangered; "><strong>Pierwszy:</strong></a> <br>– jeśli mamy możliwość
-                    zainwestowania oszczędności z wyższą stopą zwrotu niż oprocentowany jest kredyt.<br><br>
-                    <a style="color:orangered; "><strong>Drugi:</strong></a> <br>– jeśli w najbliższym czasie
-                    zamierzamy
-                    zaciągnąć jakikolwiek inny kredyt, np. na samochód.
-                    Oprocentowanie takiego kredytu będzie zazwyczaj znacznie wyższe niż kredytu hipotecznego. Czyni
-                    to
-                    bezzasadnym spłacanie kredytu mieszkaniowego i zastąpienie jego części kredytem droższym.
-                    <br><br>
-                    W pozostałych przypadkach spłata wcześniejsza kredytu jest zasadna. Ile i w jakim okresie możemy
-                    zaoszczędzić, mogą Państwo sprawdzić podając podstawowe dane swojego kredytu oraz szacowaną
-                    kwotę
-                    wcześniejszej spłaty. Po spłacie możemy skrócić okres kredytowania pozostawiając wysokość raty
-                    na
-                    dotychczasowym poziomie lub pozostawić okres spłaty jak
-                    dotychczas z mniejszą miesięczną ratą. <br><br>
-                    Po wypełnieniu formularza oraz kliknięciu oblicz, otrzymają Państwo zestawienie
-                    oszczędności wynikających z wcześniejszej spłaty.
-
-
-            </div>
-        </div>
-    </div>
+                                <div class="form-group">
+                                    <label for="year">Mniejsza rata czy skrócony okres spłaty </label><br>
+                                    <label class="radio-inline"><input class="beige" type="radio" name="czas"
+                                                                       value="bezzmian">mniejsza
+                                        rata</label>
+                                    <label class="radio-inline"><input class="beige" type="radio" name="czas"
+                                                                       value="krotszy">krótszy
+                                        okres
+                                        spłaty</label>
+                                </div>
 
 
-    <div class="odstep" style="height: 30px;"></div>
+                                <button type="submit" class="btn btn-primary btn-block " id="oblicz"
+                                        style="background-color: dimgray;">
+                                    O B L I C Z &nbsp &nbsp <i class="fa fa-check-square"></i>
+                                </button>
+                                <div class="odstep" style="height: 5px;"></div>
+                                <div class="odstep" style="height: 5px; background-color: orangered;"></div>
+                            </form>
+                        </div>
+
+                        <div class="odstep" style="height: 10px;"></div>
 
 
-    <div id="section6"></div>
-    <?php
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        echo '
-
-         <div class="well well-lg anime"  style="background-color: dimgray; color: white; text-align: center; margin-top: 40px;">'; ?>
-        <?Php
-
-        if ($krotszy == true) {
-            echo "<h3>Wybrałeś krótszy okres kredytowania. Kredyt spłacisz po ";
-
-            if ($krotszelata != 0) {
-                echo $krotszelata;
-                echo $b ? $latach : $roku;
-                echo " i ";
-            }
-            if ($krotszemies != 0) {
-                echo $krotszemies;
-                echo $mies ? $miesiacach : $miesiacu;
-                echo ".</h3>";
-            }
+                        <div class="col-md-8">
+                            <div class="tlowstepu anime">
+                                <p class="well well-lg wstep anime">
 
 
-        } ?>
-        <h3>Podane
-            przez Ciebie dane oraz kwota wcześniej spłaty wygenerują<br></h3>
+                                    Już ponad 10 % Polaków ma kredyt hipoteczny. Część z nas niezależnie od spłacanego
+                                    kredytu,
+                                    gromadzi równolegle oszczędności. Wówczas powstaje pytanie czy racjonalnym jest
+                                    spłacenie
+                                    kredytu przynajmniej w części, wcześniej. Abstrahując od konieczności posiadania
+                                    środków na
+                                    czarną
+                                    godzinę (tzw. poduszki finansowej), z ekonomicznego
+                                    punkty widzenia , kredytu <a style="color:orangered; "><strong>nie
+                                            warto</strong></a> spłacać w dwóch przypadkach:<br><br>
+                                    <a style="color:orangered; "><strong>Pierwszy:</strong></a> <br>– jeśli mamy
+                                    możliwość
+                                    zainwestowania oszczędności z wyższą stopą zwrotu niż oprocentowany jest kredyt.<br><br>
+                                    <a style="color:orangered; "><strong>Drugi:</strong></a> <br>– jeśli w najbliższym
+                                    czasie
+                                    zamierzamy
+                                    zaciągnąć jakikolwiek inny kredyt, np. na samochód.
+                                    Oprocentowanie takiego kredytu będzie zazwyczaj znacznie wyższe niż kredytu
+                                    hipotecznego. Czyni
+                                    to
+                                    bezzasadnym spłacanie kredytu mieszkaniowego i zastąpienie jego części kredytem
+                                    droższym.
+                                    <br><br>
+                                    W pozostałych przypadkach spłata wcześniejsza kredytu jest zasadna. Ile i w jakim
+                                    okresie możemy
+                                    zaoszczędzić, mogą Państwo sprawdzić podając podstawowe dane swojego kredytu oraz
+                                    szacowaną
+                                    kwotę
+                                    wcześniejszej spłaty. Po spłacie możemy skrócić okres kredytowania pozostawiając
+                                    wysokość raty
+                                    na
+                                    dotychczasowym poziomie lub pozostawić okres spłaty jak
+                                    dotychczas z mniejszą miesięczną ratą. <br><br>
+                                    Po wypełnieniu formularza oraz kliknięciu oblicz, otrzymają Państwo zestawienie
+                                    oszczędności wynikających z wcześniejszej spłaty.
 
-        <h2><strong> <a style="color:orangered;">##test## PLN oszczędności w odsetkach !!!</a></strong></h2>
 
-        <?php
-        echo ' </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="odstep" style="height: 30px;"></div>
+
+
+                    <div id="section6"></div>
+                    <?php
+                    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                        echo '
+
+         <div class="well well-lg "  style="background-color: dimgray; color: white; text-align: center; margin-top: 40px;">'; ?>
+                        <?Php
+
+                        if ($krotszy == true) {
+                            echo "<h3>Wybrałeś krótszy okres kredytowania. Kredyt spłacisz po ";
+
+                            if ($krotszelata != 0) {
+                                echo $krotszelata;
+                                echo $b ? $latach : $roku;
+                                echo " i ";
+                            }
+                            if ($krotszemies != 0) {
+                                echo $krotszemies;
+                                echo $mies ? $miesiacach : $miesiacu;
+                                echo ".</h3>";
+                            }
+
+
+                        } ?>
+                        <h3>Podane
+                            przez Ciebie dane oraz kwota wcześniej spłaty wygenerują<br></h3>
+
+                        <h2><strong> <a style="color:orangered;">##test## PLN oszczędności w odsetkach !!!</a></strong>
+                        </h2>
+
+                        <?php
+                        echo ' </div>
 
 
 
@@ -339,7 +418,7 @@ ob_start();
 
         <div class="col-md-4">
 
-            <div class="panel panel-default anime" style="background-color: dimgray; color: white; text-align: center; padding:10px;">
+            <div class="panel panel-default " style="background-color: dimgray; color: white; text-align: center; padding:10px;">
                 Harmonogram<br>
                 Sytuacja obecna
 
@@ -356,36 +435,36 @@ ob_start();
                         </thead>
                         <tbody>
                             ';
-        for ($i = 1; $i <= $n; $i++) {
-            $p = $i - 1;
-            echo '<tr>
+                        for ($i = 1; $i <= $n; $i++) {
+                            $p = $i - 1;
+                            echo '<tr>
                                 <td>' . "$i" . '</td>
                                 <td>';
-            foreach ($kredyt->kapitalTablica as $key => $value)
-                if ($key == $p) {
-                    echo number_format($value, $decimals = 2, $dec_point = ".", $thousands_sep = " ") . "";
+                            foreach ($kredyt->kapitalTablica as $key => $value)
+                                if ($key == $p) {
+                                    echo number_format($value, $decimals = 2, $dec_point = ".", $thousands_sep = " ") . "";
 
-                }
-            echo '</td>
+                                }
+                            echo '</td>
                                  <td>';
-            foreach ($kredyt->odsetkiTablica as $key => $value)
-                if ($key == $p) {
-                    echo number_format($value, $decimals = 2, $dec_point = ".", $thousands_sep = " ") . "";
+                            foreach ($kredyt->odsetkiTablica as $key => $value)
+                                if ($key == $p) {
+                                    echo number_format($value, $decimals = 2, $dec_point = ".", $thousands_sep = " ") . "";
 
-                }
-            echo '</td>
+                                }
+                            echo '</td>
                                  <td>';
-            foreach ($kredyt->splaty as $key => $value)
-                if ($key == $p) {
-                    echo number_format($value, $decimals = 2, $dec_point = ".", $thousands_sep = " ") . "";
+                            foreach ($kredyt->splaty as $key => $value)
+                                if ($key == $p) {
+                                    echo number_format($value, $decimals = 2, $dec_point = ".", $thousands_sep = " ") . "";
 
-                }
-            echo '</td>
+                                }
+                            echo '</td>
 
                             </tr>
                             ';
-        }
-        echo '
+                        }
+                        echo '
 
                         </tbody>
                     </table>
@@ -397,7 +476,7 @@ ob_start();
         </div>
 
         <div class="col-md-4">
-            <div class="panel panel-default anime" style="background-color: dimgray; color: white; text-align: center; padding:10px;">
+            <div class="panel panel-default " style="background-color: dimgray; color: white; text-align: center; padding:10px;">
                 Harmonogram<br>
                 Po wcześniej spłacie
 
@@ -414,47 +493,47 @@ ob_start();
                         </thead>
                         <tbody>
                             ';
-        for ($i = 1; $i <= $n; $i++) {
-            $p = $i - 1;
-            echo '<tr>
+                        for ($i = 1; $i <= $n; $i++) {
+                            $p = $i - 1;
+                            echo '<tr>
                                 <td>' . "$i" . '</td>
                                 <td>';
-            foreach ($kredyt1->kapitalTablica as $key => $value)
-                if ($key == $p) {
+                            foreach ($kredyt1->kapitalTablica as $key => $value)
+                                if ($key == $p) {
 
-                    if ($value <= 1) {
-                        $value = 0;
-                    } else {
-                        echo number_format($value, $decimals = 2, $dec_point = ".", $thousands_sep = " ") . "";
-                    }
-                }
-            echo '</td>
+                                    if ($value <= 1) {
+                                        $value = 0;
+                                    } else {
+                                        echo number_format($value, $decimals = 2, $dec_point = ".", $thousands_sep = " ") . "";
+                                    }
+                                }
+                            echo '</td>
                                <td>';
-            foreach ($kredyt1->odsetkiTablica as $key => $value)
-                if ($key == $p) {
+                            foreach ($kredyt1->odsetkiTablica as $key => $value)
+                                if ($key == $p) {
 
-                    if ($value < 1) {
-                        $value = 0;
-                    } else {
-                        echo number_format($value, $decimals = 2, $dec_point = ".", $thousands_sep = " ") . "";
-                    }
-                }
-            echo '</td>
+                                    if ($value < 1) {
+                                        $value = 0;
+                                    } else {
+                                        echo number_format($value, $decimals = 2, $dec_point = ".", $thousands_sep = " ") . "";
+                                    }
+                                }
+                            echo '</td>
                                <td>';
-            foreach ($kredyt1->splaty as $key => $value)
-                if ($key == $p) {
-                    if ($value < 1) {
-                        $value = 0;
-                    } else {
-                        echo number_format($value, $decimals = 2, $dec_point = ".", $thousands_sep = " ") . "";
-                    }
-                }
-            echo '</td>
+                            foreach ($kredyt1->splaty as $key => $value)
+                                if ($key == $p) {
+                                    if ($value < 1) {
+                                        $value = 0;
+                                    } else {
+                                        echo number_format($value, $decimals = 2, $dec_point = ".", $thousands_sep = " ") . "";
+                                    }
+                                }
+                            echo '</td>
 
                             </tr>
                             ';
-        }
-        echo '
+                        }
+                        echo '
 
                         </tbody>
                     </table>
@@ -463,7 +542,7 @@ ob_start();
         </div>
 
         <div class="col-md-4">
-            <div class="panel panel-default anime" style="background-color: dimgray; color: white; text-align: center; padding:10px;">
+            <div class="panel panel-default " style="background-color: dimgray; color: white; text-align: center; padding:10px;">
                 Oszczędności<br><br>
 
 
@@ -479,43 +558,43 @@ ob_start();
                         </thead>
                             <tbody>
                                 ';
-        for ($i = 1; $i <= $n; $i++) {
-            $p = $i - 1;
-            $roznica[] = $kredyt->odsetkiTablica[$p] - $kredyt1->odsetkiTablica[$p];
+                        for ($i = 1; $i <= $n; $i++) {
+                            $p = $i - 1;
+                            $roznica[] = $kredyt->odsetkiTablica[$p] - $kredyt1->odsetkiTablica[$p];
 
-        }
-        for ($i = 1; $i <= $n; $i++) {
-            $p = $i - 1;
-            echo '<tr>
+                        }
+                        for ($i = 1; $i <= $n; $i++) {
+                            $p = $i - 1;
+                            echo '<tr>
                                                 <td>' . "$i" . '</td>
 
                                                 <td>';
 
-            foreach ($roznica as $key => $value) {
-                if ($key == $p) {
-                    $b = $value;
-                    echo number_format($b, $decimals = 2, $dec_point = ".", $thousands_sep = " ") . "";
-                }
-            }
-            echo '</td>
+                            foreach ($roznica as $key => $value) {
+                                if ($key == $p) {
+                                    $b = $value;
+                                    echo number_format($b, $decimals = 2, $dec_point = ".", $thousands_sep = " ") . "";
+                                }
+                            }
+                            echo '</td>
                                                 <td>
                                                 ';
-            $v = $b + $v;
-            echo '<a style="color:orangered"><strong>';
-            echo number_format($v, $decimals = 2, $dec_point = ".", $thousands_sep = " ") . "";
-            $h = round($v, 2);
-            $zysk = strval(number_format($h, $decimals = 2, $dec_point = ".", $thousands_sep = " ") . "");
+                            $v = $b + $v;
+                            echo '<a style="color:orangered"><strong>';
+                            echo number_format($v, $decimals = 2, $dec_point = ".", $thousands_sep = " ") . "";
+                            $h = round($v, 2);
+                            $zysk = strval(number_format($h, $decimals = 2, $dec_point = ".", $thousands_sep = " ") . "");
 
-            echo '</strong>';
-            echo '
+                            echo '</strong>';
+                            echo '
                                                 </td>
 
                                                 </tr>
                                     ';
-        }
-        echo str_replace("##test##", $zysk, ob_get_clean());
-        echo str_replace("##test2##", $loggedUser, ob_get_clean());
-        echo '
+                        }
+                        echo str_replace("##test##", $zysk, ob_get_clean());
+
+                        echo '
 
                             </tbody>
                     </table>
@@ -527,52 +606,53 @@ ob_start();
     </div>
     </div>
     ';
-    }
-    ?>
+                    }
+                    ?>
 
-</div>
+                </div>
 
-<script src="js/jquery-2.1.4.min.js"></script>
-<script src="js/java.js"></script>
-<script>
-    $(document).on('ready', function () {
-    <?php
-    if ($x==1){echo "var x = 1;";
-    }?>
+                <script src="js/jquery-2.1.4.min.js"></script>
+                <script src="js/java.js"></script>
+                <script>
+                    $(document).on('ready', function () {
+                        <?php
+                        if ($x==1){echo "var x = 1;";
+                        }?>
 
-    if (x == 1) {
-       $('body').addClass('logged');
+                        if (x == 1) {
+                            $('body').addClass('logged');
 
-        console.log('jezd');
-    }
-    <?php
-        if ($x != 1) {
-            echo
-            "var x = 0;";
-        }
-       ?>
-    if (x != 1) {
-        $('body').removeClass('logged');
-        console.log('niema');
-    }});
-</script>
-<script>
-    (function (i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+                            console.log('jezd');
+                        }
+                        <?php
+                            if ($x != 1) {
+                                echo
+                                "var x = 0;";
+                            }
+                           ?>
+                        if (x != 1) {
+                            $('body').removeClass('logged');
+                            console.log('niema');
+                        }
+                    });
+                </script>
+                <script>
+                    (function (i, s, o, g, r, a, m) {
+                        i['GoogleAnalyticsObject'] = r;
+                        i[r] = i[r] || function () {
+                                (i[r].q = i[r].q || []).push(arguments)
+                            }, i[r].l = 1 * new Date();
+                        a = s.createElement(o),
+                            m = s.getElementsByTagName(o)[0];
+                        a.async = 1;
+                        a.src = g;
+                        m.parentNode.insertBefore(a, m)
+                    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-    ga('create', 'UA-38408838-2', 'auto');
-    ga('send', 'pageview');
+                    ga('create', 'UA-38408838-2', 'auto');
+                    ga('send', 'pageview');
 
-</script>
+                </script>
 </body>
 </html>
 
