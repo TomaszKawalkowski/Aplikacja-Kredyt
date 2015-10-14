@@ -1,5 +1,5 @@
 <?php
-include_once('kredyt.php');
+include_once('src/kredyt.php');
 include_once('src/home.php');
 
 session_start();
@@ -51,6 +51,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
 
@@ -152,7 +154,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             >
 
                         <div class="odstep" style="height: 20px;"></div>
-                        <button type="submit" class="btn btn-info" style="width:100%"> ZAREJESTRUJ SIĘ <i class="fa fa-sign-in"></i> </button>
+                        <button type="submit" class="btn btn-info" style="width:100%; background-color:orangered"> ZAREJESTRUJ SIĘ <i class="fa fa-sign-in"></i> </button>
 
                     </div>
 

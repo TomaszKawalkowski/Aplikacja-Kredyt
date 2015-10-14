@@ -42,6 +42,14 @@ $(document).on('ready', function () {
         event.preventDefault();
 
         $('.logform').show(2000);
+        $('#submitregister').hide(500);
         $('#Nick')[0].focus();
+    });
+    $('#submitregister').one('click', function (event) {
+        event.preventDefault();
+        $('.logform').hide(2000);
+        $('#submitlog').hide(500);
+        $('.registerform').show(2000);
+        $('#register_name')[0].focus();
     });
 });

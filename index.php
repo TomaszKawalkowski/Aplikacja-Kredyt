@@ -1,5 +1,5 @@
 <?php
-include_once('kredyt.php');
+include_once('src/kredyt.php');
 include_once('src/home.php');
 
 session_start();
@@ -121,13 +121,14 @@ ob_start();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/style.css" type="text/css">
 
 </head>
 
 <body>
-
-<nav class="navbar navbar-inverse navbar-fixed-top ">
+<nav class="navbar navbar-inverse navbar-fixed-top " >
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -135,11 +136,11 @@ ob_start();
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.php">Czy opłaca się</a>
+            <a class="navbar-brand" href="#section1">Czy opłaca się</a>
         </div>
         <div>
             <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav" >
                     <li><a href="index.php">Spłacić wcześniej kredyt hipoteczny</a></li>
                     <!--   <li><a href="nieruchomosc.php">Kupić nieruchomość z przeznaczeniem na wynajem</a></li>-->
                     <li><a href="kalk.php">Kalkulator Kredytowy</a></li>
@@ -147,18 +148,18 @@ ob_start();
                     <li><a href="register.php">Zarejestruj się</a></li>
                     <li><a href="login.php">Zaloguj</a></li>
 
-
                 </ul>
             </div>
         </div>
     </div>
 </nav>
 
+
 <div class="container">
 
     <div class="row">
         <div class="col-md-12">
-            <div style="background-color:dimgray; height: 270px;">
+            <div style="background-color:dimgray; height: 270px;" >
                 <div class=" jumbotron"
                      style="float:left; color: white; background-color: dimgray; margin: 0 0; width:75%; height:270px;">
 
@@ -177,7 +178,7 @@ ob_start();
                     if ($loggedUser) {
                         echo '
 
-                                    <div class="formularzlogowania jumbotron" style="float:right; width: 17%; height: 270px;">
+                                    <div class="formularzlogowania jumbotron" style="float:right; width: 19%; height: 270px;">
                                      <div class="form-group" style="margin-top: 5px;">
                                         <div class="tlowstepu"">
                                            <strong>';
@@ -186,7 +187,7 @@ ob_start();
                                                 <input type="hidden" name="logout" value="YES">
                                                 <button type="submit" class="btn btn-warning .btn-block"  style="width:100%; background-color: orangered;  border-radius: 7px; margin-top:8px;">  <i class="fa fa-sign-out"></i> logout</button>
                                             </form>';
-                                           echo $loggedUser->getName();
+                        echo $loggedUser->getName();
                         echo '</strong>
                                         </div>
                                         </div>
@@ -194,10 +195,10 @@ ob_start();
 
                                     </div>';
                     }
-                    if ($x!=1) {
+                    if ($x != 1) {
                         echo '
 
-                    <div class="formularzlogowania jumbotron" style="float:right; width: 17%; height: 270px;">
+                    <div class="formularzlogowania jumbotron" style="float:right; width: 22%; height: 270px;">
                         <form action="login.php" method="post" class="anime">
 
 
@@ -217,7 +218,7 @@ ob_start();
 
 
                                 </div>
-                                <div class="form-group" style="margin-top: 3px;">
+                                <div class="form-group" style="margin-top: 20px;">
 
                                     <button type="submit" class="btn btn-info"
                                             style="width:100%; background-color: orangered;  border-radius: 7px; margin-top:8px;"
@@ -231,11 +232,51 @@ ob_start();
 
 
                         </form>
+
+
+                        <form action="register.php" method="post" class="anime">
+
+                                    <div class="tlowstepu">
+
+                                        <div class="form-group registerform" style="margin-top: -25px;" id="div_register">
+
+                                            <input class="form-control" type="text" name="name" id="register_name" placeholder="Nick"
+                                                   value=""';
+                        echo $name ? $name : '';
+                        echo '>
+
+
+                                            <input class="form-control" type="email" name="email" id="register_email" placeholder="Podaj email"
+                                                   value=""';
+                        echo $email ? $email : '';
+                        echo '>
+
+
+                                            <input class="form-control" name="password" type="password" id="password"
+                                                   placeholder="Podaj hasło" >
+
+                                            <div class="odstep" style="height: 3px;"></div>
+
+                                            <input class="form-control" name="password2" type="password" id="password2"
+                                                   placeholder="Potwierdź hasło" style="margin-bottom: 22px;"
+                                                >
+                                        </div>
+
+
+
+                                        <div class="form-group" style="margin-top: -18px;">
+                                            <button type="submit" class="btn btn-info" id="submitregister" style="width:100%; background-color: orangered;  border-radius: 7px; "> ZAREJESTRUJ SIĘ <i class="fa fa-sign-in"></i> </button>
+
+                                        </div>
+                                        </div>
+                                    </div>
+
+                        </form>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>';
+            </div>
+                    ';
                     }
                     ?>
 

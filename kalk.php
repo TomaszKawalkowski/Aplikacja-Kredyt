@@ -1,5 +1,5 @@
 <?php
-include_once('kredyt.php');
+include_once('src/kredyt.php');
 include_once('src/home.php');
 
 session_start();
@@ -59,6 +59,9 @@ ob_start();
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
 
@@ -97,17 +100,16 @@ ob_start();
 
     <div class="row">
         <div class="col-md-12">
-            <div style="background-color:dimgray; height: 270px;">
+            <div style="background-color:dimgray; height: 270px;" >
                 <div class=" jumbotron"
                      style="float:left; color: white; background-color: dimgray; margin: 0 0; width:75%; height:270px;">
 
 
-                    <h1>Bankowy <span style="color:orangered"> </span></h1><br>
+                    <h1> Bankowy <span style="color:orangered">kalkulator </span> </h1><br>
 
                     <h1>
+                        kredytowy
 
-                        <small style="color: white;"></small>
-                        kalkulator  kredytowy
                     </h1>
                 </div>
 
@@ -116,7 +118,7 @@ ob_start();
                     if ($loggedUser) {
                         echo '
 
-                                    <div class="formularzlogowania jumbotron" style="float:right; width: 17%; height: 270px;">
+                                    <div class="formularzlogowania jumbotron" style="float:right; width: 19%; height: 270px;">
                                      <div class="form-group" style="margin-top: 5px;">
                                         <div class="tlowstepu"">
                                            <strong>';
@@ -137,7 +139,7 @@ ob_start();
                     if ($x != 1) {
                         echo '
 
-                    <div class="formularzlogowania jumbotron" style="float:right; width: 17%; height: 270px;">
+                    <div class="formularzlogowania jumbotron" style="float:right; width: 22%; height: 270px;">
                         <form action="login.php" method="post" class="anime">
 
 
@@ -155,12 +157,9 @@ ob_start();
                                     <input class="form-control " type="password" name="password"
                                            placeholder="Podaj hasło" style="background-color: beige">
 
-                                            <input class="form-control " type="hidden" name="kalklog"
-                                          value="1">
-
 
                                 </div>
-                                <div class="form-group" style="margin-top: 3px;">
+                                <div class="form-group" style="margin-top: 20px;">
 
                                     <button type="submit" class="btn btn-info"
                                             style="width:100%; background-color: orangered;  border-radius: 7px; margin-top:8px;"
@@ -174,11 +173,51 @@ ob_start();
 
 
                         </form>
+
+
+                        <form action="register.php" method="post" class="anime">
+
+                                    <div class="tlowstepu">
+
+                                        <div class="form-group registerform" style="margin-top: -25px;" id="div_register">
+
+                                            <input class="form-control" type="text" name="name" id="register_name" placeholder="Nick"
+                                                   value=""';
+                        echo $name ? $name : '';
+                        echo '>
+
+
+                                            <input class="form-control" type="email" name="email" id="register_email" placeholder="Podaj email"
+                                                   value=""';
+                        echo $email ? $email : '';
+                        echo '>
+
+
+                                            <input class="form-control" name="password" type="password" id="password"
+                                                   placeholder="Podaj hasło" >
+
+                                            <div class="odstep" style="height: 3px;"></div>
+
+                                            <input class="form-control" name="password2" type="password" id="password2"
+                                                   placeholder="Potwierdź hasło" style="margin-bottom: 22px;"
+                                                >
+                                        </div>
+
+
+
+                                        <div class="form-group" style="margin-top: -18px;">
+                                            <button type="submit" class="btn btn-info" id="submitregister" style="width:100%; background-color: orangered;  border-radius: 7px; "> ZAREJESTRUJ SIĘ <i class="fa fa-sign-in"></i> </button>
+
+                                        </div>
+                                        </div>
+                                    </div>
+
+                        </form>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>';
+            </div>
+                    ';
                     }
                     ?>
                     <form action="#section6" method="POST">
@@ -331,6 +370,29 @@ ob_start();
                     </form>
                     <script src="js/jquery-2.1.4.min.js"></script>
                     <script src="js/java.js"></script>
+                    <script>
+                        $(document).on('ready', function () {
+                            <?php
+                            if ($x==1){echo "var x = 1;";
+                            }?>
+
+                            if (x == 1) {
+                                $('body').addClass('logged');
+
+                                console.log('jezd');
+                            }
+                            <?php
+                                if ($x != 1) {
+                                    echo
+                                    "var x = 0;";
+                                }
+                               ?>
+                            if (x != 1) {
+                                $('body').removeClass('logged');
+                                console.log('niema');
+                            }
+                        });
+                    </script>
 </body>
 <script>
     (function (i, s, o, g, r, a, m) {
