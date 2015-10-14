@@ -145,8 +145,7 @@ ob_start();
                     <!--   <li><a href="nieruchomosc.php">Kupić nieruchomość z przeznaczeniem na wynajem</a></li>-->
                     <li><a href="kalk.php">Kalkulator Kredytowy</a></li>
                     <li><a href="formularz_kontaktowy.php">Napisz do nas</a></li>
-                    <li><a href="register.php">Zarejestruj się</a></li>
-                    <li><a href="login.php">Zaloguj</a></li>
+
 
                 </ul>
             </div>
@@ -157,10 +156,10 @@ ob_start();
 
 <div class="container">
 
-    <div class="row">
-        <div class="col-md-12">
-            <div style="background-color:dimgray; height: 270px;" >
-                <div class=" jumbotron"
+    <div class="row .visible-xs-block, hidden-xs">
+        <div class="col-md-12 jumbotron" style=" float:left; margin-bottom: 15px;">
+            <div style="background-color:dimgray; height: 290px; " >
+                <div class=" "
                      style="float:left; color: white; background-color: dimgray; margin: 0 0; width:75%; height:270px;">
 
 
@@ -173,13 +172,14 @@ ob_start();
                     </h1>
                 </div>
 
-                <div style="background-color: dimgray">
+<div class="col-md-3 ">
+                <div style="background-color: dimgray; float:left;">
                     <?Php
                     if ($loggedUser) {
                         echo '
 
-                                    <div class="formularzlogowania jumbotron" style="float:right; width: 19%; height: 270px;">
-                                     <div class="form-group" style="margin-top: 5px;">
+                                    <div class="formularzlogowania jumbotron" style="float:right; width: 100%;">
+                                     <div class="form-group" style="margin-top: 0;">
                                         <div class="tlowstepu"">
                                            <strong>';
                         echo '
@@ -198,7 +198,7 @@ ob_start();
                     if ($x != 1) {
                         echo '
 
-                    <div class="formularzlogowania jumbotron" style="float:right; width: 22%; height: 270px;">
+                    <div class="formularzlogowania jumbotron" style="float:right; width: 100%; ">
                         <form action="login.php" method="post" class="anime">
 
 
@@ -206,7 +206,7 @@ ob_start();
 
 
 
-                                <div class="form-group logform" style="margin-top: 15px; ">
+                                <div class="form-group logform" style="margin-top: 0; ">
 
                                     <input class="form-control " type="text" name="name" placeholder="Nick"
                                            style="background-color: beige" id="Nick">
@@ -279,7 +279,8 @@ ob_start();
                     ';
                     }
                     ?>
-
+                </div>
+<div  class=".visible-md-block, hidden-md .visible-lg-block, hidden-lg" style="height: 40px;"></div>
                     <div class="row">
 
                         <div class="col-md-12">
@@ -302,7 +303,7 @@ ob_start();
                                     <label for="kwota">Podaj kwotę kredytu</label>
                                     <input class="form-control" type="number" name="kwota"
                                            placeholder="Podaj wartość ..." min="0"
-                                           max="500 000 000"
+                                           max="500 000 000"  step="0.01"
                                            value="<?Php echo $k ? $k : '' ?>">
                                 </div>
 
@@ -310,7 +311,7 @@ ob_start();
                                 <div class="form-group">
                                     <label for="oprocentowanie">Podaj oprocentowanie w skali roku</label>
                                     <input class="form-control" type="number" name="oprocentowanie"
-                                           placeholder="Wartość w % ..."
+                                           placeholder="Wartość w % ..."  step="0.01"
                                            min="0" max="100" value="<?Php echo $p ? $p : '' ?>">
                                 </div>
 
@@ -342,7 +343,7 @@ ob_start();
                                     <label for="year">Kwota wcześniejszej spłaty</label>
                                     <input class="form-control" type="number" name='szybkasplata'
                                            placeholder="Podaj wartość ..."
-                                           min="0" max="500 000 000"
+                                           min="0" max="500 000 000"  step="0.01"
                                            value="<?Php echo $w ? $w : '' ?>">
                                 </div>
 
@@ -370,9 +371,9 @@ ob_start();
                         <div class="odstep" style="height: 10px;"></div>
 
 
-                        <div class="col-md-8">
+                        <div class="col-md-8 .visible-xs-block, hidden-xs">
                             <div class="tlowstepu anime">
-                                <p class="well well-lg wstep anime">
+                                <p class="well well-lg wstep anime ">
 
 
                                     Już ponad 10 % Polaków ma kredyt hipoteczny. Część z nas niezależnie od spłacanego
@@ -420,7 +421,7 @@ ob_start();
                     <div class="odstep" style="height: 30px;"></div>
 
 
-                    <div id="section6"></div>
+
                     <?php
                     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         echo '
@@ -458,7 +459,7 @@ ob_start();
     <div class ="row">
 
         <div class="col-md-4">
-
+<div id="section6"></div>
             <div class="panel panel-default " style="background-color: dimgray; color: white; text-align: center; padding:10px;">
                 Harmonogram<br>
                 Sytuacja obecna

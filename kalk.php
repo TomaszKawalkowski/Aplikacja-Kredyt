@@ -85,8 +85,7 @@ ob_start();
                     <li><a href="index.php">Spłacić wcześniej kredyt hipoteczny</a></li>
                     <li><a href="kalk.php">Kalkulator Kredytowy</a></li>
                     <li><a href="formularz_kontaktowy.php">Napisz do nas</a></li>
-                    <li><a href="register.php">Zarejestruj się</a></li>
-                    <li><a href="login.php">Zaloguj</a></li>
+
 
                 </ul>
             </div>
@@ -98,48 +97,48 @@ ob_start();
 
 <div class="container">
 
-    <div class="row">
-        <div class="col-md-12">
-            <div style="background-color:dimgray; height: 270px;" >
-                <div class=" jumbotron"
+    <div class="row  .visible-xs-block, hidden-xs">
+        <div class="col-md-12 jumbotron" style=" float:left; margin-bottom: 15px;">
+            <div style="background-color:dimgray; height: 290px; margin-top:30px;" >
+                <div class=" "
                      style="float:left; color: white; background-color: dimgray; margin: 0 0; width:75%; height:270px;">
 
 
-                    <h1> Bankowy <span style="color:orangered">kalkulator </span> </h1><br>
+                    <h1> Bankowy <span style="color:orangered">kalkulator </span></h1><br>
 
                     <h1>
-                        kredytowy
 
+                        kredytowy
                     </h1>
                 </div>
 
-                <div style="background-color: dimgray">
-                    <?Php
-                    if ($loggedUser) {
-                        echo '
+                <div class="col-md-3 ">
+                    <div style="background-color: dimgray; float:left;">
+                        <?Php
+                        if ($loggedUser) {
+                            echo '
 
-                                    <div class="formularzlogowania jumbotron" style="float:right; width: 19%; height: 270px;">
-                                     <div class="form-group" style="margin-top: 5px;">
+                                    <div class="formularzlogowania jumbotron" style="float:right; width: 100%;">
+                                     <div class="form-group" style="margin-top: 0;">
                                         <div class="tlowstepu"">
                                            <strong>';
-                        echo '
+                            echo '
                                             <form action="index.php" role="form" method="POST">
                                                 <input type="hidden" name="logout" value="YES">
                                                 <button type="submit" class="btn btn-warning .btn-block"  style="width:100%; background-color: orangered;  border-radius: 7px; margin-top:8px;">  <i class="fa fa-sign-out"></i> logout</button>
                                             </form>';
-                        echo $loggedUser->getName();
-                        echo '</strong>
-                                        </div>
+                            echo $loggedUser->getName();
+                            echo '</strong>
                                         </div>
                                         </div>
                                         </div>
 
                                     </div>';
-                    }
-                    if ($x != 1) {
-                        echo '
+                        }
+                        if ($x != 1) {
+                            echo '
 
-                    <div class="formularzlogowania jumbotron" style="float:right; width: 22%; height: 270px;">
+                    <div class="formularzlogowania jumbotron" style="float:right; width: 100%; ">
                         <form action="login.php" method="post" class="anime">
 
 
@@ -147,7 +146,7 @@ ob_start();
 
 
 
-                                <div class="form-group logform" style="margin-top: 15px; ">
+                                <div class="form-group logform" style="margin-top: 0; ">
 
                                     <input class="form-control " type="text" name="name" placeholder="Nick"
                                            style="background-color: beige" id="Nick">
@@ -183,14 +182,14 @@ ob_start();
 
                                             <input class="form-control" type="text" name="name" id="register_name" placeholder="Nick"
                                                    value=""';
-                        echo $name ? $name : '';
-                        echo '>
+                            echo $name ? $name : '';
+                            echo '>
 
 
                                             <input class="form-control" type="email" name="email" id="register_email" placeholder="Podaj email"
                                                    value=""';
-                        echo $email ? $email : '';
-                        echo '>
+                            echo $email ? $email : '';
+                            echo '>
 
 
                                             <input class="form-control" name="password" type="password" id="password"
@@ -218,10 +217,11 @@ ob_start();
             </div>
             </div>
                     ';
-                    }
-                    ?>
+                        }
+                        ?>
+                    </div>
                     <form action="#section6" method="POST">
-                        <div class="odstep" style="height: 10px;"></div>
+                        <div class="odstep .visible-md-block, hidden-md .visible-lg-block, hidden-lg" style="height: 40px;"></div>
                         <div class="well well-lg anime"
                              style="background-color: dimgray; color: white; text-align: center;"><strong>PODAJ DANE DO
                                 OBLICZENIA <a style="color:orangered;">RAT KREDYTOWYCH</a> </strong>
@@ -234,14 +234,14 @@ ob_start();
                                     <div class="form-group">
                                         <label for="kwota">Podaj kwotę kredytu</label>
                                         <input class="form-control" type="number" name="kwota"
-                                               placeholder="Podaj wartość ..." min="0" max="500 000 000"
+                                               placeholder="Podaj wartość ..." min="0" max="500 000 000"  step="0.01"
                                                value="<?Php echo $k ? $k : '' ?>">
                                     </div>
 
 
                                     <div class="form-group">
                                         <label for="oprocentowanie">Podaj oprocentowanie w skali roku</label>
-                                        <input class="form-control" type="number" name="oprocentowanie"
+                                        <input class="form-control" type="number" name="oprocentowanie"  step="0.01"
                                                placeholder="Wartość w % ..."
                                                min="0" max="100" value="<?Php echo $p ? $p : '' ?>">
                                     </div>
@@ -279,7 +279,7 @@ ob_start();
                             <div class="col-md-4" style="margin-top: 10px;"></div>
                         </div>
                         <div class="odstep" style="height: 10px;"></div>
-                        <div id="section6"></div>
+
                         <br>
 
                         <?php
@@ -295,7 +295,7 @@ ob_start();
                             <h2> <?php
                                 echo ' </div>
 
-
+      <div id="section6"></div>
 
     <div class ="row">
         <div class="col-md-4"></div>
